@@ -1,0 +1,4 @@
+career_id,title,description,skills,education,avg_salary
+1,Data Scientist,"Analyze data, build models, and communicate insights.","Python;Pandas;Machine Learning;Statistics","BSc Computer Science / Statistics",60000
+2,Frontend Developer,"Build UI using HTML/CSS/JS and frameworks like React.","HTML;CSS;JavaScript;React","BSc IT / CS",50000
+3,Cybersecurity Analyst,"Monitor security, respond to incidents, vulnerability assessment.","Networking;Security;Linux;Python","BSc IT / CS",55000

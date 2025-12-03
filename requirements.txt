@@ -1,0 +1,12 @@
+streamlit
+pandas
+scikit-learn
+tqdm
+python-multipart
+pdfplumber
+python-dotenv
+requests
+# Optional for using OpenAI official client:
+openai
+# Optional for Google Gemini via google-generative-ai:
+# google-generative-ai
