@@ -6,37 +6,39 @@ import time
 # ---------------------------
 # App Config
 # ---------------------------
-st.set_page_config(page_title="Visionary - Career Finder", layout="wide")
+st.set_page_config(page_title="Visionary - AI Career Finder", layout="wide")
 
 # ---------------------------
 # Theme Toggle
 # ---------------------------
-theme = st.sidebar.radio("Select Theme", ["Light", "Dark"])
-if theme == "Dark":
+theme_choice = st.sidebar.radio("Select Theme", ["Light", "Dark"])
+if theme_choice == "Dark":
     st.markdown(
         """
         <style>
-        .reportview-container {background-color: #0E1117; color: white;}
+        .stApp {background-color: #0E1117; color: white;}
+        .css-1d391kg {color:white;}
         </style>
-        """, unsafe_allow_html=True
+        """,
+        unsafe_allow_html=True
     )
 
 # ---------------------------
 # Load Dataset
 # ---------------------------
-df = pd.read_csv("data/visionary_careers_sri_lanka.csv")
+df = pd.read_csv("data/visionary_careers_sri_lanka_real.csv")
 
 # ---------------------------
-# Sidebar Instructions
+# Sidebar Info
 # ---------------------------
 st.sidebar.title("About Visionary")
 st.sidebar.info(
     """
     Welcome to **Visionary - AI Career Finder**!
-    
-    - Select your **sector** (optional).  
-    - Choose your **skills, interests, and subjects**.  
-    - Explore recommended careers below.  
+
+    - Select **sector** (optional)
+    - Choose your **skills, interests, subjects**
+    - Get **color-coded, AI-enhanced career recommendations**
     """
 )
 
@@ -61,10 +63,7 @@ selected_subjects = st.multiselect("Subjects You Studied", subjects_list)
 # ---------------------------
 # Filter by Sector (Optional)
 # ---------------------------
-if selected_sector:
-    df_filtered = df[df['Sector'] == selected_sector].copy()
-else:
-    df_filtered = df.copy()
+df_filtered = df[df['Sector'] == selected_sector].copy() if selected_sector else df.copy()
 
 # ---------------------------
 # Scoring Function
@@ -84,9 +83,9 @@ df_filtered = df_filtered[df_filtered['score'] > 0]
 df_filtered = df_filtered.sort_values(by='score', ascending=False)
 
 # ---------------------------
-# Gemini API Call
+# Gemini API Integration
 # ---------------------------
-API_KEY = "AIzaSyDJXh-XUik1vg3h2qER0D7S0sizAGW8xkc"  # Replace with your actual Gemini API key
+API_KEY = ""  # Replace with your Gemini API key
 GEMINI_ENDPOINT = "https://api.gemini.ai/v1/complete"  # Example endpoint
 
 @st.cache_data
@@ -109,7 +108,7 @@ def get_career_description(career_name, sector, skills, interests):
         return "Description not available."
 
 # ---------------------------
-# Recommendation Display
+# Display Recommendations
 # ---------------------------
 st.subheader("Recommended Careers for You:")
 
@@ -120,7 +119,7 @@ else:
     for idx, (_, row) in enumerate(df_filtered.iterrows()):
         col = cols[idx % 3]
 
-        # Color coding (encouraging)
+        # Color coding
         if row['score'] >= 5:
             box_color = "#4CAF50"  # green
         elif row['score'] >= 3:
@@ -128,9 +127,9 @@ else:
         else:
             box_color = "#B0BEC5"  # light gray
 
-        # Get LLM-generated description
+        # LLM Description
         description = get_career_description(row['Career_Name'], row['Sector'], row['Required_Skills'], row['Interests'])
-        time.sleep(0.1)  # slight delay to prevent API overload
+        time.sleep(0.1)  # small delay to prevent API overload
 
         col.markdown(
             f"""
@@ -138,6 +137,8 @@ else:
                 <h4 style="margin:0; color:white;">{row['Career_Name']}</h4>
                 <p style="margin:0; color:white;"><b>Sector:</b> {row['Sector']}</p>
                 <p style="margin:0; color:white;"><b>Top Skills:</b> {row['Required_Skills']}</p>
+                <p style="margin:0; color:white;"><b>Education:</b> {row['Education_Level']}</p>
+                <p style="margin-top:5px; color:white;"><b>Average Salary (LKR):</b> {row['Average_Salary_LKR']}</p>
                 <p style="margin-top:5px; color:white;">{description}</p>
             </div>
             """,
