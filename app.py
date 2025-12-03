@@ -1,87 +1,145 @@
-# app.py
 import streamlit as st
-from recommender import CareerRecommender
-from llm_wrapper import generate_explanation
-from utils import extract_text_from_pdf, summarize_cv_text
 import pandas as pd
-from io import StringIO
+import requests
+import time
 
-st.set_page_config(page_title="Visionary — Career Path Finder", layout="wide")
+# ---------------------------
+# App Config
+# ---------------------------
+st.set_page_config(page_title="Visionary - Career Finder", layout="wide")
 
-@st.cache_resource
-def load_recommender():
-    return CareerRecommender('data/careers.csv')
+# ---------------------------
+# Theme Toggle
+# ---------------------------
+theme = st.sidebar.radio("Select Theme", ["Light", "Dark"])
+if theme == "Dark":
+    st.markdown(
+        """
+        <style>
+        .reportview-container {background-color: #0E1117; color: white;}
+        </style>
+        """, unsafe_allow_html=True
+    )
 
-recommender = load_recommender()
+# ---------------------------
+# Load Dataset
+# ---------------------------
+df = pd.read_csv("data/visionary_careers_sri_lanka.csv")
 
-st.title("Visionary — AI Career Path Finder (Streamlit)")
+# ---------------------------
+# Sidebar Instructions
+# ---------------------------
+st.sidebar.title("About Visionary")
+st.sidebar.info(
+    """
+    Welcome to **Visionary - AI Career Finder**!
+    
+    - Select your **sector** (optional).  
+    - Choose your **skills, interests, and subjects**.  
+    - Explore recommended careers below.  
+    """
+)
 
-menu = st.sidebar.selectbox("Page", ["Home", "Upload CV", "Questionnaire", "Recommendations", "Admin"])
+# ---------------------------
+# Inputs
+# ---------------------------
+st.title("Explore Your Career Path")
+st.subheader("Tell us about yourself:")
 
-if menu == "Home":
-    st.write("""
-    Welcome — try uploading your CV or answer a short questionnaire.
-    The system will suggest career paths and learning resources.
-    """)
-    st.info("Set LLM_PROVIDER and LLM_API_KEY in your environment to enable explanations.")
+sector_options = [""] + sorted(df['Sector'].unique().tolist())
+selected_sector = st.selectbox("Select Sector (Optional)", sector_options, index=0)
 
-if menu == "Upload CV":
-    uploaded_file = st.file_uploader("Upload your CV (pdf or txt)", type=['pdf','txt'])
-    if uploaded_file:
-        if uploaded_file.type == 'application/pdf':
-            with open("tmp_cv.pdf", "wb") as f:
-                f.write(uploaded_file.getbuffer())
-            cv_text = extract_text_from_pdf("tmp_cv.pdf")
+skills_list = sorted(set([skill.strip() for skills in df['Required_Skills'] for skill in skills.split(",")]))
+selected_skills = st.multiselect("Your Skills", skills_list)
+
+interests_list = sorted(df['Interests'].unique())
+selected_interests = st.multiselect("Your Interests", interests_list)
+
+subjects_list = sorted(set([sub.strip() for subs in df['Required_Subjects'] for sub in subs.split(",")]))
+selected_subjects = st.multiselect("Subjects You Studied", subjects_list)
+
+# ---------------------------
+# Filter by Sector (Optional)
+# ---------------------------
+if selected_sector:
+    df_filtered = df[df['Sector'] == selected_sector].copy()
+else:
+    df_filtered = df.copy()
+
+# ---------------------------
+# Scoring Function
+# ---------------------------
+def calculate_score(row):
+    score = 0
+    career_skills = [s.strip() for s in row['Required_Skills'].split(",")]
+    score += len(set(selected_skills).intersection(career_skills))
+    career_subjects = [s.strip() for s in row['Required_Subjects'].split(",")]
+    score += len(set(selected_subjects).intersection(career_subjects))
+    if row['Interests'] in selected_interests:
+        score += 1
+    return score
+
+df_filtered['score'] = df_filtered.apply(calculate_score, axis=1)
+df_filtered = df_filtered[df_filtered['score'] > 0]
+df_filtered = df_filtered.sort_values(by='score', ascending=False)
+
+# ---------------------------
+# Gemini API Call
+# ---------------------------
+API_KEY = "AIzaSyDJXh-XUik1vg3h2qER0D7S0sizAGW8xkc"  # Replace with your actual Gemini API key
+GEMINI_ENDPOINT = "https://api.gemini.ai/v1/complete"  # Example endpoint
+
+@st.cache_data
+def get_career_description(career_name, sector, skills, interests):
+    prompt = f"""
+    Give a short, encouraging description of the career "{career_name}" in the "{sector}" sector.
+    Highlight top skills: {skills}. Mention why someone with interests in {interests} might enjoy this path.
+    Keep it positive and motivational.
+    """
+    try:
+        headers = {"Authorization": f"Bearer {API_KEY}"}
+        data = {"prompt": prompt, "max_tokens": 150}
+        response = requests.post(GEMINI_ENDPOINT, json=data, headers=headers, timeout=10)
+        if response.status_code == 200:
+            text = response.json().get("text", "")
+            return text.strip()
         else:
-            s = StringIO(uploaded_file.getvalue().decode("utf-8"))
-            cv_text = s.read()
-        st.subheader("Extracted CV text (preview):")
-        st.write(summarize_cv_text(cv_text, max_len=1500))
-        st.session_state['user_text'] = cv_text
+            return "Description not available."
+    except Exception as e:
+        return "Description not available."
 
-if menu == "Questionnaire":
-    st.header("Tell us about yourself")
-    skills = st.text_input("Key skills (comma separated)", "")
-    interests = st.text_input("Interests (e.g., ML, frontend, security)", "")
-    experience = st.text_area("Brief experience / summary", "")
-    if st.button("Save inputs"):
-        combined = f"Skills: {skills}. Interests: {interests}. Summary: {experience}"
-        st.session_state['user_text'] = combined
-        st.success("Saved! Go to Recommendations.")
+# ---------------------------
+# Recommendation Display
+# ---------------------------
+st.subheader("Recommended Careers for You:")
 
-if menu == "Recommendations":
-    st.header("Recommendations")
-    user_text = st.session_state.get('user_text', '')
-    if not user_text:
-        st.warning("No input found. Upload a CV or fill the questionnaire.")
-    else:
-        top_k = st.slider("Number of suggestions", min_value=1, max_value=10, value=5)
-        with st.spinner("Generating recommendations..."):
-            recs = recommender.recommend(user_text, top_k=top_k)
-        st.write("### Top matches")
-        for idx, row in recs.iterrows():
-            st.subheader(f"{row['title']}  —  score: {row['score']:.3f}")
-            st.write(f"**Skills:** {row.get('skills','')}")
-            st.write(f"**Education:** {row.get('education','')}")
-            # generate LLM explanation for each
-            prompt = (f"User profile: {user_text}\n\nCareer: {row['title']}\nDescription: {row['description']}\n"
-                      f"Why is this a good match and what learning path should the user take? Provide 4 concise steps.")
-            explanation = generate_explanation(prompt)
-            st.markdown(f"**Suggested path / explanation:**\n\n{explanation}")
-        # allow download of recommendations as CSV
-        csv = recs.to_csv(index=False)
-        st.download_button("Download recommendations CSV", csv, file_name="recommendations.csv", mime="text/csv")
+if df_filtered.empty:
+    st.info("No matching careers found. Try adjusting your inputs!")
+else:
+    cols = st.columns(3)
+    for idx, (_, row) in enumerate(df_filtered.iterrows()):
+        col = cols[idx % 3]
 
-if menu == "Admin":
-    st.header("Admin: Upload/Preview careers dataset")
-    uploaded = st.file_uploader("Upload careers CSV", type=['csv'])
-    if uploaded:
-        df = pd.read_csv(uploaded)
-        st.write(df.head())
-        # overwrite local file (optional)
-        if st.button("Save to data/careers.csv"):
-            df.to_csv("data/careers.csv", index=False)
-            st.success("Saved. Reloading recommender...")
-            # clear cache
-            st.cache_resource.clear()
-            st.experimental_rerun()
+        # Color coding (encouraging)
+        if row['score'] >= 5:
+            box_color = "#4CAF50"  # green
+        elif row['score'] >= 3:
+            box_color = "#2196F3"  # blue
+        else:
+            box_color = "#B0BEC5"  # light gray
+
+        # Get LLM-generated description
+        description = get_career_description(row['Career_Name'], row['Sector'], row['Required_Skills'], row['Interests'])
+        time.sleep(0.1)  # slight delay to prevent API overload
+
+        col.markdown(
+            f"""
+            <div style="background-color:{box_color}; padding:15px; border-radius:10px; margin-bottom:10px;">
+                <h4 style="margin:0; color:white;">{row['Career_Name']}</h4>
+                <p style="margin:0; color:white;"><b>Sector:</b> {row['Sector']}</p>
+                <p style="margin:0; color:white;"><b>Top Skills:</b> {row['Required_Skills']}</p>
+                <p style="margin-top:5px; color:white;">{description}</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
