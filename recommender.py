@@ -1,31 +1,24 @@
-# recommender.py
-import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel
-import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
-class CareerRecommender:
-    def __init__(self, careers_csv='data/careers.csv'):
-        self.df = pd.read_csv(careers_csv)
-        # create a text field
-        self.df['text_blob'] = (self.df['title'].fillna('') + ' . ' +
-                                self.df['description'].fillna('') + ' . ' +
-                                self.df['skills'].fillna(''))
-        self.vectorizer = TfidfVectorizer(stop_words='english', ngram_range=(1,2))
-        self.tfidf_matrix = self.vectorizer.fit_transform(self.df['text_blob'])
+def get_dataset_recommendations(df, skills, interests, subjects, sector):
+    """
+    Returns top 10 careers from the dataset based on cosine similarity.
+    """
+    user_text = f"{skills} {interests} {subjects}".lower()
+    df["combined"] = (df["Required_Skills"].fillna("") + " " +
+                      df["Interests"].fillna("") + " " +
+                      df["Required_Subjects"].fillna("")).str.lower()
+    
+    if sector:
+        df_filtered = df[df["Sector"].str.lower() == sector.lower()]
+    else:
+        df_filtered = df.copy()
 
-    def recommend(self, user_text, top_k=5):
-        user_vec = self.vectorizer.transform([user_text])
-        scores = cosine_similarity(user_vec, self.tfidf_matrix).flatten()
+    tfidf = TfidfVectorizer().fit_transform(df_filtered["combined"])
+    user_vec = TfidfVectorizer().fit(df_filtered["combined"]).transform([user_text])
+    sim_scores = cosine_similarity(user_vec, tfidf).flatten()
+    df_filtered["score"] = sim_scores
 
-        self.careers_df['score'] = scores
-
-        # Filter out zero scores
-        filtered = self.careers_df[self.careers_df['score'] > 0]
-
-        # Sort by highest score
-        filtered = filtered.sort_values(by="score", ascending=False)
-
-        # Return only top_k nonzero results
-        return filtered.head(top_k)
-
+    top_recs = df_filtered.sort_values(by="score", ascending=False).head(10)
+    return top_recs.to_dict(orient="records")
