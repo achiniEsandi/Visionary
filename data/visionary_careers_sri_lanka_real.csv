@@ -1,0 +1,201 @@
+Career_Name,Sector,Required_Skills,Required_Subjects,Interests,Education_Level,Average_Salary_LKR
+UI/UX Designer,IT,"Problem Solving, Leadership, Patient Care","English, Economics",Business & Finance,Diploma,148126
+UI/UX Designer,IT,"Patient Care, Data Analysis, Creativity","Biology, Physics",Education,MSc,131353
+Business Analyst,IT,"Teamwork, Patient Care, Data Analysis","Chemistry, Biology",Business & Finance,Diploma,148197
+Business Analyst,IT,"Research, Leadership, Teamwork","Economics, ICT",Law & Policy,Diploma,167479
+Software Engineer,IT,"Design, Project Management, Communication","Management, Chemistry",Technology,PhD,92229
+DevOps Engineer,IT,"Teaching, Teamwork, Communication","Management, Chemistry",Law & Policy,PhD,225671
+Data Scientist,IT,"Marketing, Teamwork, Programming","Economics, Math",Law & Policy,BSc,198499
+Data Scientist,IT,"Research, Patient Care, Marketing","ICT, Statistics",Art & Creativity,MSc,244478
+Data Scientist,IT,"Programming, Research, Teamwork","Biology, History",Education,Diploma,80938
+Data Analyst,IT,"Project Management, Teaching, Data Analysis","Chemistry, Management",Travel & Hospitality,BSc Honours,161639
+Software Engineer,IT,"Teamwork, Teaching, Leadership","Management, Statistics",Education,BEd,139255
+Cybersecurity Analyst,IT,"Patient Care, Communication, Teaching","History, Accounting",Education,MSc,168356
+Business Analyst,IT,"Teaching, Research, Project Management","Statistics, Math",Science,MBA,138877
+DevOps Engineer,IT,"Project Management, Teamwork, Critical Thinking","Accounting, History",Education,BSc,229946
+Data Scientist,IT,"Research, Project Management, Leadership","Physics, English",Art & Creativity,LLB,86384
+Web Developer,IT,"Problem Solving, Teaching, Critical Thinking","Management, Biology",Health & Wellness,MBBS,132408
+DevOps Engineer,IT,"Creativity, Communication, Problem Solving","Accounting, Chemistry",Helping People,MBBS,219301
+Cybersecurity Analyst,IT,"Communication, Patient Care, Data Analysis","Statistics, Physics",Health & Wellness,BSc Honours,166481
+Software Engineer,IT,"Critical Thinking, Teaching, Creativity","Biology, History",Science,BSc,105079
+DevOps Engineer,IT,"Leadership, Research, Programming","Accounting, Math",Law & Policy,MBA,225832
+Nurse,Healthcare,"Communication, Research, Design","Statistics, English",Travel & Hospitality,LLB,157127
+Pharmacist,Healthcare,"Creativity, Problem Solving, Research","Management, Chemistry",Business & Finance,BSc,129366
+Speech Therapist,Healthcare,"Critical Thinking, Communication, Project Management","History, Physics",Education,LLB,158258
+Doctor,Healthcare,"Programming, Marketing, Leadership","Accounting, Math",Science,BSc,222227
+Lab Technician,Healthcare,"Design, Project Management, Communication","Management, Physics",Law & Policy,Diploma,211490
+Medical Researcher,Healthcare,"Critical Thinking, Design, Project Management","Math, Physics",Education,LLB,99068
+Nurse,Healthcare,"Research, Creativity, Teaching","History, ICT",Technology,LLB,171158
+Dentist,Healthcare,"Teaching, Research, Design","Chemistry, Statistics",Law & Policy,BEd,104222
+Lab Technician,Healthcare,"Teaching, Patient Care, Research","Chemistry, Math",Art & Creativity,MBBS,111311
+Physiotherapist,Healthcare,"Patient Care, Teamwork, Teaching","History, Biology",Technology,BSc Honours,152372
+Lab Technician,Healthcare,"Data Analysis, Teamwork, Patient Care","Accounting, Chemistry",Technology,BSc,212821
+Occupational Therapist,Healthcare,"Communication, Programming, Marketing","ICT, Chemistry",Business & Finance,BEd,166029
+Dentist,Healthcare,"Programming, Teaching, Problem Solving","Management, History",Helping People,MBBS,256442
+Occupational Therapist,Healthcare,"Communication, Project Management, Programming","Accounting, Economics",Law & Policy,BSc,124417
+Nurse,Healthcare,"Creativity, Design, Teamwork","English, Economics",Research,LLB,270591
+Dentist,Healthcare,"Programming, Creativity, Critical Thinking","Economics, Physics",Art & Creativity,BSc,143658
+Nurse,Healthcare,"Leadership, Teaching, Data Analysis","Economics, Physics",Science,LLB,246276
+Pharmacist,Healthcare,"Design, Critical Thinking, Programming","ICT, Economics",Research,BSc,250274
+Medical Researcher,Healthcare,"Project Management, Research, Teamwork","Math, Economics",Law & Policy,MSc,125668
+Physiotherapist,Healthcare,"Teamwork, Problem Solving, Teaching","Economics, Math",Business & Finance,BSc Honours,120224
+Industrial Engineer,Engineering,"Project Management, Marketing, Communication","Management, History",Health & Wellness,BEd,103596
+Electronics Engineer,Engineering,"Critical Thinking, Leadership, Teaching","Statistics, Accounting",Travel & Hospitality,BEd,184144
+Structural Engineer,Engineering,"Data Analysis, Patient Care, Project Management","Accounting, Math",Travel & Hospitality,BEd,101195
+Environmental Engineer,Engineering,"Marketing, Data Analysis, Leadership","ICT, Accounting",Law & Policy,PhD,156709
+Automation Engineer,Engineering,"Critical Thinking, Programming, Research","Economics, Statistics",Helping People,LLB,153115
+Project Engineer,Engineering,"Data Analysis, Research, Design","ICT, Physics",Art & Creativity,LLB,93156
+Chemical Engineer,Engineering,"Design, Teamwork, Leadership","English, ICT",Law & Policy,MBA,204768
+Civil Engineer,Engineering,"Problem Solving, Teamwork, Data Analysis","Statistics, History",Research,MBA,104842
+Chemical Engineer,Engineering,"Critical Thinking, Data Analysis, Project Management","English, Management",Science,BSc,155212
+Mechanical Engineer,Engineering,"Research, Leadership, Design","Economics, Accounting",Art & Creativity,MSc,165514
+Mechanical Engineer,Engineering,"Project Management, Critical Thinking, Design","English, Physics",Business & Finance,MSc,154079
+Electrical Engineer,Engineering,"Patient Care, Research, Teamwork","ICT, Chemistry",Education,BEd,192742
+Mechanical Engineer,Engineering,"Teamwork, Patient Care, Communication","Biology, Math",Health & Wellness,PhD,152228
+Electronics Engineer,Engineering,"Teamwork, Communication, Research","History, Statistics",Technology,PhD,183416
+Structural Engineer,Engineering,"Leadership, Creativity, Programming","ICT, Accounting",Helping People,LLB,158905
+Environmental Engineer,Engineering,"Teaching, Communication, Creativity","History, English",Health & Wellness,MSc,126816
+Industrial Engineer,Engineering,"Teamwork, Programming, Teaching","Physics, Math",Technology,BSc,185343
+Structural Engineer,Engineering,"Programming, Design, Teaching","Physics, ICT",Art & Creativity,MSc,132160
+Environmental Engineer,Engineering,"Leadership, Design, Patient Care","Biology, Math",Law & Policy,PhD,118203
+Electrical Engineer,Engineering,"Marketing, Project Management, Leadership","History, Biology",Research,MBBS,203443
+School Principal,Education,"Communication, Problem Solving, Patient Care","Economics, Chemistry",Technology,MBA,78483
+History Teacher,Education,"Communication, Teamwork, Project Management","Statistics, Management",Science,BSc,76522
+School Principal,Education,"Problem Solving, Critical Thinking, Teaching","Accounting, History",Science,LLB,79415
+English Teacher,Education,"Teamwork, Teaching, Leadership","History, Chemistry",Technology,MBA,95988
+Science Teacher,Education,"Teaching, Project Management, Leadership","Accounting, Management",Health & Wellness,BEd,90030
+Math Teacher,Education,"Programming, Teamwork, Marketing","ICT, Economics",Helping People,BSc,72493
+Academic Advisor,Education,"Communication, Leadership, Patient Care","History, Accounting",Health & Wellness,Diploma,81038
+Education Consultant,Education,"Patient Care, Leadership, Research","Physics, English",Science,Diploma,78906
+Science Teacher,Education,"Marketing, Research, Patient Care","History, Economics",Business & Finance,PhD,84678
+Math Teacher,Education,"Design, Creativity, Research","Statistics, ICT",Law & Policy,MBA,106330
+Special Education Teacher,Education,"Creativity, Data Analysis, Teamwork","Accounting, Management",Technology,PhD,81208
+English Teacher,Education,"Marketing, Design, Project Management","Management, English",Technology,PhD,69850
+English Teacher,Education,"Design, Creativity, Leadership","History, Physics",Education,BSc Honours,103856
+History Teacher,Education,"Teaching, Communication, Research","History, ICT",Travel & Hospitality,PhD,95736
+Education Consultant,Education,"Communication, Project Management, Programming","Management, Physics",Education,MBBS,104842
+Science Teacher,Education,"Patient Care, Leadership, Creativity","Statistics, Economics",Law & Policy,BSc Honours,61752
+Science Teacher,Education,"Data Analysis, Leadership, Project Management","Biology, Chemistry",Research,PhD,100589
+School Principal,Education,"Leadership, Critical Thinking, Problem Solving","History, English",Education,LLB,104639
+Academic Advisor,Education,"Critical Thinking, Communication, Problem Solving","ICT, Biology",Business & Finance,BSc Honours,60804
+Science Teacher,Education,"Marketing, Communication, Patient Care","English, Chemistry",Science,MSc,112069
+HR Manager,Business,"Communication, Teaching, Programming","Chemistry, ICT",Law & Policy,Diploma,179519
+Business Consultant,Business,"Communication, Leadership, Project Management","Accounting, English",Education,LLB,72598
+Marketing Executive,Business,"Teamwork, Data Analysis, Leadership","English, Accounting",Science,Diploma,165473
+HR Manager,Business,"Teaching, Marketing, Data Analysis","Economics, Physics",Art & Creativity,BSc,171565
+Sales Manager,Business,"Creativity, Data Analysis, Leadership","Math, Accounting",Research,PhD,73615
+Accountant,Business,"Patient Care, Marketing, Research","History, Economics",Art & Creativity,MBA,145126
+Brand Manager,Business,"Marketing, Communication, Leadership","Accounting, Chemistry",Art & Creativity,LLB,145582
+HR Manager,Business,"Marketing, Data Analysis, Leadership","Biology, Chemistry",Business & Finance,BSc Honours,79426
+Supply Chain Manager,Business,"Project Management, Data Analysis, Creativity","Biology, ICT",Art & Creativity,MSc,140315
+Brand Manager,Business,"Communication, Patient Care, Problem Solving","Accounting, Management",Law & Policy,MBBS,196391
+Financial Analyst,Business,"Critical Thinking, Leadership, Research","Physics, Economics",Education,MBA,71619
+Supply Chain Manager,Business,"Research, Creativity, Marketing","Math, Physics",Technology,MSc,184795
+Business Consultant,Business,"Data Analysis, Design, Project Management","Accounting, English",Health & Wellness,BSc,152892
+HR Manager,Business,"Leadership, Data Analysis, Marketing","Math, Chemistry",Helping People,MSc,122500
+Entrepreneur,Business,"Marketing, Programming, Problem Solving","Economics, ICT",Technology,BSc,116089
+Sales Manager,Business,"Leadership, Patient Care, Communication","Math, English",Health & Wellness,Diploma,128569
+Business Consultant,Business,"Creativity, Data Analysis, Critical Thinking","Economics, Math",Technology,LLB,149952
+Accountant,Business,"Data Analysis, Communication, Teamwork","English, Statistics",Technology,BSc Honours,146809
+HR Manager,Business,"Patient Care, Design, Data Analysis","Management, Statistics",Education,BSc,72572
+Accountant,Business,"Marketing, Design, Creativity","History, ICT",Law & Policy,BEd,196962
+Art Director,Arts & Media,"Teamwork, Communication, Data Analysis","ICT, Chemistry",Health & Wellness,BSc Honours,78349
+Video Editor,Arts & Media,"Creativity, Patient Care, Leadership","Accounting, ICT",Business & Finance,LLB,44667
+Video Editor,Arts & Media,"Problem Solving, Leadership, Critical Thinking","English, Statistics",Science,PhD,145965
+Art Director,Arts & Media,"Creativity, Patient Care, Critical Thinking","Biology, Economics",Technology,Diploma,114385
+Journalist,Arts & Media,"Teaching, Communication, Programming","Physics, History",Education,BEd,49697
+Music Producer,Arts & Media,"Teaching, Marketing, Problem Solving","Economics, Biology",Technology,PhD,96220
+Art Director,Arts & Media,"Programming, Marketing, Data Analysis","English, Accounting",Science,MSc,77484
+Art Director,Arts & Media,"Data Analysis, Critical Thinking, Teamwork","Statistics, ICT",Travel & Hospitality,MSc,146883
+Animator,Arts & Media,"Problem Solving, Critical Thinking, Teamwork","Statistics, Accounting",Travel & Hospitality,MBA,115860
+Animator,Arts & Media,"Teamwork, Data Analysis, Communication","Chemistry, Accounting",Law & Policy,PhD,59358
+Journalist,Arts & Media,"Design, Data Analysis, Problem Solving","Statistics, History",Research,MBA,88961
+Content Creator,Arts & Media,"Programming, Design, Leadership","English, Math",Helping People,MBBS,40741
+Art Director,Arts & Media,"Critical Thinking, Teamwork, Research","History, Economics",Health & Wellness,PhD,126933
+Illustrator,Arts & Media,"Teamwork, Data Analysis, Creativity","Statistics, Accounting",Law & Policy,MBBS,137490
+Photographer,Arts & Media,"Communication, Leadership, Research","Chemistry, ICT",Law & Policy,LLB,128087
+Video Editor,Arts & Media,"Project Management, Leadership, Research","ICT, Management",Science,BSc,124400
+Music Producer,Arts & Media,"Data Analysis, Project Management, Creativity","ICT, Economics",Art & Creativity,PhD,116211
+Art Director,Arts & Media,"Communication, Critical Thinking, Research","English, History",Health & Wellness,MBA,87859
+Fashion Designer,Arts & Media,"Teamwork, Programming, Problem Solving","Biology, Management",Health & Wellness,BSc Honours,102847
+Journalist,Arts & Media,"Creativity, Teamwork, Communication","Statistics, Management",Travel & Hospitality,MBBS,100709
+Credit Analyst,Finance,"Creativity, Communication, Leadership","Management, Math",Technology,MBA,131534
+Auditor,Finance,"Problem Solving, Programming, Teaching","History, Biology",Education,MBBS,146679
+Investment Analyst,Finance,"Teaching, Communication, Patient Care","Accounting, Statistics",Art & Creativity,BSc Honours,211563
+Treasury Officer,Finance,"Marketing, Design, Communication","Economics, Chemistry",Travel & Hospitality,BEd,113595
+Credit Analyst,Finance,"Design, Teaching, Patient Care","Math, ICT",Research,BSc,139522
+Financial Planner,Finance,"Design, Teaching, Project Management","English, Accounting",Science,BEd,227558
+Portfolio Manager,Finance,"Creativity, Teaching, Problem Solving","Economics, Biology",Travel & Hospitality,PhD,230444
+Portfolio Manager,Finance,"Project Management, Critical Thinking, Creativity","Biology, Accounting",Helping People,BEd,116578
+Portfolio Manager,Finance,"Problem Solving, Critical Thinking, Teaching","Chemistry, Biology",Travel & Hospitality,BSc Honours,241071
+Treasury Officer,Finance,"Teamwork, Project Management, Marketing","History, Physics",Law & Policy,MBBS,201751
+Investment Analyst,Finance,"Communication, Teaching, Design","Economics, History",Travel & Hospitality,MSc,118347
+Bank Officer,Finance,"Marketing, Problem Solving, Creativity","Economics, Math",Art & Creativity,BEd,151278
+Bank Officer,Finance,"Teaching, Problem Solving, Research","Math, Biology",Education,Diploma,232399
+Investment Analyst,Finance,"Problem Solving, Creativity, Critical Thinking","Math, Statistics",Education,BSc,120818
+Credit Analyst,Finance,"Creativity, Leadership, Marketing","ICT, Physics",Science,MSc,178598
+Credit Analyst,Finance,"Leadership, Project Management, Communication","English, Math",Research,MBBS,177245
+Portfolio Manager,Finance,"Creativity, Data Analysis, Teamwork","Math, Physics",Travel & Hospitality,BEd,217790
+Auditor,Finance,"Leadership, Teamwork, Design","Biology, Math",Health & Wellness,MSc,247343
+Risk Manager,Finance,"Critical Thinking, Research, Creativity","Math, Management",Helping People,BEd,109306
+Investment Analyst,Finance,"Project Management, Patient Care, Teaching","Economics, ICT",Law & Policy,PhD,112102
+Corporate Lawyer,Law,"Design, Leadership, Data Analysis","Biology, ICT",Art & Creativity,PhD,276770
+Arbitrator,Law,"Leadership, Project Management, Design","Physics, Management",Education,BEd,123651
+Human Rights Lawyer,Law,"Teaching, Project Management, Research","Physics, ICT",Travel & Hospitality,BSc,165415
+Human Rights Lawyer,Law,"Problem Solving, Teamwork, Programming","English, Management",Helping People,BEd,280627
+Legal Consultant,Law,"Project Management, Data Analysis, Marketing","Management, Statistics",Law & Policy,PhD,183652
+Paralegal,Law,"Project Management, Marketing, Problem Solving","Accounting, Biology",Research,MSc,256768
+Notary,Law,"Project Management, Teamwork, Creativity","ICT, English",Law & Policy,BSc Honours,107764
+Paralegal,Law,"Communication, Critical Thinking, Marketing","Biology, History",Law & Policy,BSc Honours,248375
+Judge,Law,"Critical Thinking, Teamwork, Data Analysis","Physics, Economics",Business & Finance,MBBS,201194
+Lawyer,Law,"Teaching, Research, Leadership","History, Biology",Art & Creativity,BSc,240210
+Judge,Law,"Communication, Data Analysis, Teamwork","English, Accounting",Travel & Hospitality,Diploma,279694
+Legal Consultant,Law,"Research, Creativity, Programming","Math, Economics",Art & Creativity,MBBS,157694
+Arbitrator,Law,"Leadership, Communication, Marketing","Economics, Biology",Helping People,MBBS,207021
+Legal Consultant,Law,"Teaching, Marketing, Communication","Statistics, Economics",Education,Diploma,206028
+Corporate Lawyer,Law,"Design, Patient Care, Critical Thinking","Physics, History",Law & Policy,BSc Honours,275825
+Mediator,Law,"Programming, Patient Care, Data Analysis","Chemistry, Biology",Education,Diploma,249845
+Lawyer,Law,"Leadership, Teaching, Design","Accounting, Management",Law & Policy,MBBS,175208
+Corporate Lawyer,Law,"Critical Thinking, Marketing, Research","English, History",Education,BSc Honours,227561
+Human Rights Lawyer,Law,"Programming, Marketing, Problem Solving","Statistics, Accounting",Helping People,PhD,252743
+Human Rights Lawyer,Law,"Teamwork, Design, Problem Solving","ICT, Management",Law & Policy,Diploma,290347
+Environmental Scientist,Science,"Problem Solving, Marketing, Leadership","Math, English",Health & Wellness,LLB,154792
+Chemist,Science,"Programming, Design, Leadership","Accounting, Biology",Technology,PhD,150511
+Environmental Scientist,Science,"Communication, Teamwork, Creativity","Chemistry, Accounting",Science,MSc,76985
+Biologist,Science,"Marketing, Critical Thinking, Teaching","Biology, Statistics",Helping People,LLB,167150
+Astronomer,Science,"Patient Care, Design, Teamwork","Math, Biology",Law & Policy,Diploma,92082
+Chemist,Science,"Patient Care, Research, Data Analysis","Economics, English",Science,PhD,119324
+Research Scientist,Science,"Communication, Leadership, Design","Biology, Accounting",Art & Creativity,MBA,135594
+Microbiologist,Science,"Creativity, Teaching, Research","Statistics, Economics",Law & Policy,Diploma,97649
+Environmental Scientist,Science,"Data Analysis, Leadership, Creativity","Math, ICT",Technology,BSc Honours,87549
+Microbiologist,Science,"Research, Teamwork, Design","English, History",Law & Policy,MBBS,80968
+Chemist,Science,"Design, Creativity, Research","Management, Economics",Science,Diploma,166860
+Astronomer,Science,"Marketing, Teaching, Research","English, ICT",Travel & Hospitality,PhD,155610
+Biochemist,Science,"Teamwork, Critical Thinking, Creativity","Economics, Management",Travel & Hospitality,BSc,111202
+Environmental Scientist,Science,"Leadership, Patient Care, Teaching","English, ICT",Science,MSc,175208
+Chemist,Science,"Marketing, Programming, Problem Solving","History, ICT",Education,MBBS,151531
+Physicist,Science,"Research, Patient Care, Creativity","Math, ICT",Health & Wellness,BEd,93460
+Astronomer,Science,"Leadership, Teamwork, Design","Accounting, History",Art & Creativity,MSc,139074
+Microbiologist,Science,"Data Analysis, Creativity, Teamwork","ICT, History",Science,MSc,144546
+Biologist,Science,"Project Management, Critical Thinking, Data Analysis","Management, Economics",Helping People,PhD,86027
+Biologist,Science,"Project Management, Problem Solving, Critical Thinking","Biology, English",Health & Wellness,BEd,166045
+Hotel Manager,Hospitality,"Communication, Patient Care, Creativity","Chemistry, Math",Research,Diploma,95150
+Tour Guide,Hospitality,"Problem Solving, Data Analysis, Programming","Accounting, Biology",Travel & Hospitality,MBA,111953
+Tour Guide,Hospitality,"Teaching, Project Management, Teamwork","Economics, Accounting",Business & Finance,LLB,91301
+Chef,Hospitality,"Research, Data Analysis, Design","English, Accounting",Law & Policy,BSc Honours,116697
+Travel Consultant,Hospitality,"Data Analysis, Design, Teaching","History, Economics",Technology,Diploma,110095
+Travel Consultant,Hospitality,"Patient Care, Teamwork, Problem Solving","ICT, Biology",Health & Wellness,PhD,103080
+Travel Consultant,Hospitality,"Creativity, Research, Leadership","Accounting, Math",Health & Wellness,MSc,41325
+Chef,Hospitality,"Project Management, Patient Care, Design","English, Accounting",Law & Policy,PhD,79307
+Hotel Manager,Hospitality,"Creativity, Teamwork, Project Management","Management, Biology",Technology,MBA,116385
+Travel Consultant,Hospitality,"Communication, Data Analysis, Project Management","Physics, Biology",Law & Policy,BEd,109646
+Front Desk Officer,Hospitality,"Data Analysis, Project Management, Creativity","Statistics, ICT",Science,BSc Honours,67576
+Tour Guide,Hospitality,"Research, Design, Teaching","Biology, Physics",Research,LLB,116890
+Front Desk Officer,Hospitality,"Marketing, Problem Solving, Programming","History, Accounting",Business & Finance,Diploma,112057
+Front Desk Officer,Hospitality,"Teaching, Creativity, Programming","Physics, Math",Art & Creativity,Diploma,64145
+Tour Guide,Hospitality,"Leadership, Communication, Marketing","ICT, Chemistry",Research,Diploma,51867
+Housekeeping Supervisor,Hospitality,"Critical Thinking, Data Analysis, Programming","Management, Statistics",Helping People,PhD,75289
+Concierge,Hospitality,"Marketing, Leadership, Critical Thinking","Math, ICT",Technology,MBBS,110249
+Restaurant Manager,Hospitality,"Patient Care, Marketing, Teamwork","Statistics, Management",Art & Creativity,Diploma,59442
+Restaurant Manager,Hospitality,"Teamwork, Research, Creativity","Accounting, History",Law & Policy,MBA,103241
+Housekeeping Supervisor,Hospitality,"Teamwork, Data Analysis, Problem Solving","Statistics, Biology",Technology,MSc,102164

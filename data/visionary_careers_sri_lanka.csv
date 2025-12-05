@@ -1,0 +1,201 @@
+Career_Name,Sector,Required_Skills,Required_Subjects,Interests,Education_Level,Average_Salary_LKR
+Education Career 1,Education,"Design, Problem Solving, Teamwork","English, Economics",Education,Diploma,103958
+IT Career 2,IT,"Communication, Project Management, Marketing","Management, ICT",Technology,BEd,94761
+Education Career 3,Education,"Project Management, Data Analysis, Teamwork","Accounting, Economics",Law & Policy,PhD,50488
+Education Career 4,Education,"Leadership, Research, Patient Care","Physics, Math",Helping People,MBBS,104339
+Education Career 5,Education,"Teaching, Programming, Communication","Math, Economics",Research,BSc,86058
+Business Career 6,Business,"Problem Solving, Creativity, Communication","Statistics, Economics",Travel & Hospitality,MSc,108295
+IT Career 7,IT,"Problem Solving, Data Analysis, Teaching","Physics, English",Travel & Hospitality,Diploma,137781
+Healthcare Career 8,Healthcare,"Creativity, Communication, Marketing","Economics, History",Law & Policy,MBA,176450
+Business Career 9,Business,"Creativity, Patient Care, Design","ICT, Chemistry",Travel & Hospitality,Diploma,193263
+Healthcare Career 10,Healthcare,"Problem Solving, Data Analysis, Teamwork","Economics, Math",Art & Creativity,MBA,232322
+Finance Career 11,Finance,"Project Management, Leadership, Data Analysis","Physics, Economics",Health & Wellness,MBA,227331
+Arts & Media Career 12,Arts & Media,"Project Management, Design, Leadership","English, Accounting",Helping People,MSc,58825
+Healthcare Career 13,Healthcare,"Critical Thinking, Project Management, Teaching","Physics, History",Science,PhD,192835
+Finance Career 14,Finance,"Teamwork, Design, Problem Solving","ICT, Math",Science,BEd,234281
+Education Career 15,Education,"Project Management, Programming, Design","Physics, Economics",Travel & Hospitality,BEd,77522
+Arts & Media Career 16,Arts & Media,"Design, Programming, Teamwork","Accounting, Math",Research,BSc,102229
+IT Career 17,IT,"Teaching, Project Management, Data Analysis","ICT, Economics",Research,Diploma,176013
+Finance Career 18,Finance,"Communication, Teamwork, Marketing","Management, Chemistry",Technology,BSc Honours,165357
+IT Career 19,IT,"Teaching, Patient Care, Communication","Statistics, History",Helping People,Diploma,129319
+Hospitality Career 20,Hospitality,"Teaching, Critical Thinking, Teamwork","Math, Biology",Travel & Hospitality,MBBS,79570
+Hospitality Career 21,Hospitality,"Teaching, Marketing, Research","Math, Economics",Helping People,LLB,64881
+Business Career 22,Business,"Problem Solving, Research, Design","English, Chemistry",Business & Finance,LLB,144234
+IT Career 23,IT,"Data Analysis, Marketing, Patient Care","English, Math",Travel & Hospitality,BSc,103027
+Education Career 24,Education,"Project Management, Critical Thinking, Research","Chemistry, English",Research,PhD,81445
+Engineering Career 25,Engineering,"Problem Solving, Teamwork, Leadership","Math, Economics",Science,PhD,214400
+Hospitality Career 26,Hospitality,"Critical Thinking, Creativity, Problem Solving","History, Biology",Travel & Hospitality,Diploma,95253
+Education Career 27,Education,"Programming, Communication, Project Management","History, English",Business & Finance,BEd,50341
+Hospitality Career 28,Hospitality,"Teaching, Patient Care, Design","History, Biology",Health & Wellness,MSc,71297
+Business Career 29,Business,"Critical Thinking, Project Management, Design","Accounting, Chemistry",Business & Finance,Diploma,198581
+Science Career 30,Science,"Patient Care, Research, Leadership","History, Biology",Law & Policy,MSc,83186
+Finance Career 31,Finance,"Data Analysis, Teamwork, Leadership","Math, Physics",Art & Creativity,MBA,212970
+Business Career 32,Business,"Creativity, Communication, Marketing","History, Accounting",Technology,BSc Honours,143002
+Law Career 33,Law,"Marketing, Programming, Teamwork","Economics, ICT",Science,BSc Honours,282630
+Finance Career 34,Finance,"Teaching, Research, Creativity","Biology, Physics",Helping People,Diploma,229721
+Healthcare Career 35,Healthcare,"Communication, Data Analysis, Critical Thinking","Statistics, Biology",Art & Creativity,MBBS,145615
+Finance Career 36,Finance,"Research, Teamwork, Marketing","Chemistry, Economics",Science,LLB,226377
+Engineering Career 37,Engineering,"Programming, Project Management, Problem Solving","History, Biology",Science,Diploma,200754
+Hospitality Career 38,Hospitality,"Creativity, Communication, Project Management","Economics, Physics",Education,BSc,52283
+Arts & Media Career 39,Arts & Media,"Critical Thinking, Programming, Communication","History, Math",Helping People,MSc,143914
+Science Career 40,Science,"Teamwork, Design, Patient Care","Accounting, ICT",Helping People,BEd,155018
+Hospitality Career 41,Hospitality,"Teamwork, Design, Patient Care","Statistics, English",Helping People,Diploma,51568
+Education Career 42,Education,"Critical Thinking, Data Analysis, Communication","History, Accounting",Business & Finance,PhD,106358
+Hospitality Career 43,Hospitality,"Marketing, Data Analysis, Teamwork","English, Management",Helping People,MBBS,68779
+IT Career 44,IT,"Creativity, Design, Leadership","Management, Statistics",Helping People,MBBS,151182
+Finance Career 45,Finance,"Design, Marketing, Communication","Economics, ICT",Art & Creativity,Diploma,249160
+Healthcare Career 46,Healthcare,"Project Management, Problem Solving, Marketing","Management, History",Travel & Hospitality,LLB,128899
+Law Career 47,Law,"Programming, Teamwork, Leadership","ICT, Management",Science,MBBS,287408
+Education Career 48,Education,"Patient Care, Communication, Data Analysis","Biology, Physics",Science,BEd,95796
+Arts & Media Career 49,Arts & Media,"Communication, Patient Care, Data Analysis","ICT, Biology",Law & Policy,BEd,129962
+Business Career 50,Business,"Project Management, Design, Programming","Biology, ICT",Helping People,BSc Honours,193474
+IT Career 51,IT,"Programming, Teaching, Problem Solving","Physics, Economics",Health & Wellness,BSc,211680
+Finance Career 52,Finance,"Research, Creativity, Data Analysis","Physics, ICT",Technology,BSc Honours,168651
+Science Career 53,Science,"Problem Solving, Critical Thinking, Leadership","Accounting, English",Art & Creativity,MBBS,123417
+Law Career 54,Law,"Design, Creativity, Communication","ICT, English",Research,MSc,227704
+Business Career 55,Business,"Teaching, Design, Critical Thinking","Statistics, Economics",Art & Creativity,PhD,98661
+Finance Career 56,Finance,"Data Analysis, Marketing, Programming","Chemistry, Statistics",Technology,BSc,93402
+Law Career 57,Law,"Data Analysis, Teamwork, Project Management","History, Accounting",Education,MSc,201825
+Healthcare Career 58,Healthcare,"Creativity, Design, Teaching","Statistics, Math",Travel & Hospitality,Diploma,263182
+Arts & Media Career 59,Arts & Media,"Communication, Project Management, Problem Solving","Chemistry, Economics",Health & Wellness,LLB,58178
+Engineering Career 60,Engineering,"Critical Thinking, Design, Teaching","Statistics, Accounting",Business & Finance,MBBS,115986
+Business Career 61,Business,"Data Analysis, Communication, Programming","Chemistry, Management",Law & Policy,BEd,177000
+IT Career 62,IT,"Leadership, Project Management, Creativity","Biology, Physics",Science,Diploma,181545
+Law Career 63,Law,"Creativity, Communication, Design","English, Biology",Science,PhD,156793
+Science Career 64,Science,"Research, Patient Care, Teamwork","Economics, Statistics",Art & Creativity,Diploma,76970
+Arts & Media Career 65,Arts & Media,"Programming, Design, Communication","Statistics, Accounting",Health & Wellness,BSc,89645
+IT Career 66,IT,"Project Management, Research, Programming","English, Math",Science,MBA,119799
+Hospitality Career 67,Hospitality,"Teamwork, Data Analysis, Problem Solving","Economics, ICT",Law & Policy,LLB,94287
+Business Career 68,Business,"Leadership, Marketing, Project Management","ICT, Math",Law & Policy,MBA,97231
+Healthcare Career 69,Healthcare,"Project Management, Creativity, Programming","Physics, History",Helping People,BSc,283925
+Healthcare Career 70,Healthcare,"Creativity, Project Management, Design","Math, English",Business & Finance,MBA,256909
+Hospitality Career 71,Hospitality,"Design, Teaching, Leadership","History, Accounting",Art & Creativity,MSc,93941
+Engineering Career 72,Engineering,"Communication, Teamwork, Design","Math, ICT",Helping People,Diploma,196490
+Finance Career 73,Finance,"Leadership, Teaching, Data Analysis","Physics, ICT",Travel & Hospitality,PhD,198995
+Science Career 74,Science,"Patient Care, Data Analysis, Programming","Statistics, History",Law & Policy,PhD,163626
+Engineering Career 75,Engineering,"Teamwork, Marketing, Patient Care","Management, ICT",Travel & Hospitality,BEd,92039
+Business Career 76,Business,"Marketing, Programming, Project Management","Physics, Math",Travel & Hospitality,BSc,146875
+IT Career 77,IT,"Teaching, Data Analysis, Communication","English, Math",Research,MSc,89966
+IT Career 78,IT,"Programming, Creativity, Teamwork","History, Economics",Health & Wellness,MBBS,132066
+IT Career 79,IT,"Teaching, Design, Data Analysis","Accounting, Physics",Science,PhD,108864
+Engineering Career 80,Engineering,"Data Analysis, Critical Thinking, Problem Solving","ICT, English",Research,BSc Honours,206026
+Hospitality Career 81,Hospitality,"Project Management, Critical Thinking, Problem Solving","Chemistry, Economics",Travel & Hospitality,MSc,82014
+Education Career 82,Education,"Creativity, Teamwork, Problem Solving","English, Math",Travel & Hospitality,BSc,65363
+Arts & Media Career 83,Arts & Media,"Communication, Teaching, Project Management","Chemistry, Management",Technology,BSc Honours,105457
+Education Career 84,Education,"Problem Solving, Critical Thinking, Communication","Economics, History",Travel & Hospitality,LLB,96184
+Engineering Career 85,Engineering,"Creativity, Problem Solving, Leadership","ICT, Accounting",Art & Creativity,Diploma,143746
+Healthcare Career 86,Healthcare,"Problem Solving, Patient Care, Programming","Statistics, Physics",Helping People,BEd,147753
+Arts & Media Career 87,Arts & Media,"Critical Thinking, Leadership, Communication","Chemistry, Economics",Education,MBA,46855
+Healthcare Career 88,Healthcare,"Teaching, Design, Programming","Math, History",Travel & Hospitality,MBA,124307
+Education Career 89,Education,"Programming, Problem Solving, Research","Math, ICT",Science,LLB,55804
+Education Career 90,Education,"Teaching, Problem Solving, Marketing","Chemistry, Statistics",Health & Wellness,MBBS,119574
+Healthcare Career 91,Healthcare,"Teamwork, Programming, Design","Statistics, ICT",Education,MBA,143762
+Hospitality Career 92,Hospitality,"Programming, Design, Teamwork","Biology, Math",Art & Creativity,MBA,63908
+Finance Career 93,Finance,"Teamwork, Teaching, Creativity","Accounting, Chemistry",Science,BSc Honours,247063
+Arts & Media Career 94,Arts & Media,"Teaching, Critical Thinking, Communication","Accounting, Chemistry",Science,LLB,113481
+Science Career 95,Science,"Communication, Critical Thinking, Design","History, Economics",Art & Creativity,BEd,131769
+Education Career 96,Education,"Research, Communication, Problem Solving","Management, English",Business & Finance,BEd,59992
+Business Career 97,Business,"Programming, Creativity, Teamwork","History, Statistics",Research,MBA,184060
+Arts & Media Career 98,Arts & Media,"Teamwork, Teaching, Leadership","Physics, Math",Art & Creativity,Diploma,73069
+Engineering Career 99,Engineering,"Project Management, Communication, Patient Care","ICT, Physics",Health & Wellness,LLB,168537
+Education Career 100,Education,"Problem Solving, Communication, Research","Physics, Statistics",Helping People,BSc Honours,99639
+Finance Career 101,Finance,"Teamwork, Problem Solving, Teaching","Chemistry, History",Business & Finance,MSc,205253
+Business Career 102,Business,"Problem Solving, Design, Leadership","Biology, Math",Research,LLB,73714
+Education Career 103,Education,"Teamwork, Marketing, Design","Math, Chemistry",Technology,PhD,70730
+Law Career 104,Law,"Leadership, Creativity, Marketing","ICT, Physics",Business & Finance,MBBS,251191
+Science Career 105,Science,"Patient Care, Project Management, Communication","Statistics, Biology",Education,BEd,155209
+Hospitality Career 106,Hospitality,"Patient Care, Teamwork, Problem Solving","Management, Chemistry",Research,MBBS,41218
+Science Career 107,Science,"Problem Solving, Communication, Creativity","Physics, ICT",Business & Finance,MBA,144603
+Hospitality Career 108,Hospitality,"Marketing, Patient Care, Project Management","Statistics, Physics",Helping People,BSc,41086
+Business Career 109,Business,"Critical Thinking, Patient Care, Marketing","Accounting, Biology",Helping People,MSc,161922
+Finance Career 110,Finance,"Research, Leadership, Critical Thinking","ICT, Biology",Science,Diploma,103532
+Science Career 111,Science,"Programming, Problem Solving, Teaching","History, English",Science,MBA,79924
+Science Career 112,Science,"Project Management, Teaching, Problem Solving","ICT, Accounting",Science,LLB,155147
+Law Career 113,Law,"Data Analysis, Programming, Teamwork","Management, ICT",Technology,MBA,189343
+Hospitality Career 114,Hospitality,"Teaching, Patient Care, Programming","Statistics, History",Business & Finance,MBA,76261
+Science Career 115,Science,"Design, Creativity, Teaching","Statistics, ICT",Research,MBA,152541
+Education Career 116,Education,"Project Management, Patient Care, Teaching","Statistics, Math",Education,BSc,109755
+Law Career 117,Law,"Leadership, Teamwork, Design","Biology, Management",Helping People,MBBS,295436
+Finance Career 118,Finance,"Teamwork, Creativity, Teaching","Accounting, Biology",Health & Wellness,PhD,162856
+Finance Career 119,Finance,"Patient Care, Design, Data Analysis","English, Management",Helping People,MBA,174681
+Arts & Media Career 120,Arts & Media,"Critical Thinking, Programming, Data Analysis","Math, Management",Travel & Hospitality,MBA,95790
+Engineering Career 121,Engineering,"Data Analysis, Marketing, Design","Management, English",Helping People,BEd,107148
+Law Career 122,Law,"Project Management, Data Analysis, Teamwork","Math, Biology",Travel & Hospitality,LLB,177333
+Law Career 123,Law,"Programming, Design, Marketing","Economics, Physics",Research,BEd,271311
+Business Career 124,Business,"Teamwork, Research, Design","History, Physics",Art & Creativity,MBBS,142332
+Engineering Career 125,Engineering,"Programming, Leadership, Teaching","History, Economics",Science,Diploma,208562
+Science Career 126,Science,"Creativity, Project Management, Problem Solving","Chemistry, Statistics",Art & Creativity,PhD,155079
+Healthcare Career 127,Healthcare,"Teamwork, Design, Marketing","ICT, Math",Travel & Hospitality,PhD,123952
+Finance Career 128,Finance,"Problem Solving, Creativity, Communication","ICT, Physics",Helping People,LLB,132108
+Hospitality Career 129,Hospitality,"Design, Teamwork, Teaching","Management, History",Health & Wellness,MBBS,65178
+IT Career 130,IT,"Teamwork, Marketing, Research","Math, Accounting",Travel & Hospitality,MBBS,119559
+Law Career 131,Law,"Patient Care, Creativity, Marketing","ICT, History",Business & Finance,BSc,178987
+Finance Career 132,Finance,"Teaching, Project Management, Leadership","Economics, Biology",Business & Finance,MBBS,94341
+Law Career 133,Law,"Design, Critical Thinking, Patient Care","ICT, History",Travel & Hospitality,Diploma,183923
+IT Career 134,IT,"Communication, Creativity, Research","Chemistry, Statistics",Technology,MSc,232951
+Arts & Media Career 135,Arts & Media,"Leadership, Programming, Teaching","Biology, Economics",Technology,BSc,45725
+Finance Career 136,Finance,"Creativity, Leadership, Marketing","Physics, Statistics",Technology,BSc,125176
+Hospitality Career 137,Hospitality,"Design, Marketing, Patient Care","English, Math",Art & Creativity,MBBS,90104
+Healthcare Career 138,Healthcare,"Leadership, Communication, Problem Solving","English, Chemistry",Education,MBA,112381
+IT Career 139,IT,"Teaching, Patient Care, Problem Solving","ICT, Accounting",Helping People,BEd,204355
+Engineering Career 140,Engineering,"Teaching, Design, Teamwork","Biology, Chemistry",Technology,BSc,127361
+Arts & Media Career 141,Arts & Media,"Communication, Data Analysis, Project Management","Management, Math",Helping People,BEd,49941
+IT Career 142,IT,"Patient Care, Project Management, Teamwork","Statistics, Biology",Education,LLB,180970
+Arts & Media Career 143,Arts & Media,"Patient Care, Teamwork, Leadership","English, History",Health & Wellness,PhD,98472
+Hospitality Career 144,Hospitality,"Communication, Programming, Problem Solving","Economics, Biology",Health & Wellness,Diploma,58933
+Science Career 145,Science,"Marketing, Patient Care, Project Management","Physics, Statistics",Research,PhD,78242
+Hospitality Career 146,Hospitality,"Teaching, Data Analysis, Problem Solving","Management, Biology",Education,MBA,95453
+Law Career 147,Law,"Communication, Teaching, Research","History, Economics",Law & Policy,MBA,141957
+IT Career 148,IT,"Teaching, Communication, Research","ICT, Management",Health & Wellness,LLB,190381
+Arts & Media Career 149,Arts & Media,"Leadership, Programming, Research","ICT, History",Education,LLB,97554
+Arts & Media Career 150,Arts & Media,"Teamwork, Critical Thinking, Data Analysis","Biology, Math",Travel & Hospitality,BEd,126392
+Science Career 151,Science,"Teamwork, Teaching, Problem Solving","Biology, Economics",Art & Creativity,Diploma,114150
+Arts & Media Career 152,Arts & Media,"Communication, Project Management, Critical Thinking","Accounting, Economics",Technology,MBA,116260
+Healthcare Career 153,Healthcare,"Project Management, Critical Thinking, Marketing","ICT, Math",Health & Wellness,LLB,112086
+Arts & Media Career 154,Arts & Media,"Problem Solving, Data Analysis, Communication","Biology, Chemistry",Health & Wellness,PhD,41182
+Hospitality Career 155,Hospitality,"Programming, Data Analysis, Design","Accounting, Management",Health & Wellness,PhD,62150
+Healthcare Career 156,Healthcare,"Creativity, Programming, Research","Physics, Accounting",Art & Creativity,MBA,295564
+IT Career 157,IT,"Data Analysis, Leadership, Teamwork","Economics, Math",Law & Policy,BSc,130874
+Finance Career 158,Finance,"Design, Research, Marketing","Chemistry, Statistics",Art & Creativity,BSc Honours,157030
+Finance Career 159,Finance,"Problem Solving, Programming, Communication","Physics, Chemistry",Science,BEd,112519
+Engineering Career 160,Engineering,"Creativity, Critical Thinking, Project Management","Accounting, Biology",Law & Policy,PhD,144221
+Arts & Media Career 161,Arts & Media,"Data Analysis, Teaching, Research","ICT, Management",Technology,MBBS,52074
+Science Career 162,Science,"Marketing, Communication, Design","Biology, Statistics",Law & Policy,MSc,177360
+Hospitality Career 163,Hospitality,"Patient Care, Teaching, Data Analysis","Statistics, Physics",Research,PhD,100842
+IT Career 164,IT,"Research, Teaching, Programming","Accounting, Math",Law & Policy,BSc Honours,195993
+Business Career 165,Business,"Patient Care, Critical Thinking, Problem Solving","Management, Physics",Helping People,MBA,144090
+Arts & Media Career 166,Arts & Media,"Teamwork, Marketing, Teaching","Physics, History",Health & Wellness,MBBS,119709
+Education Career 167,Education,"Teaching, Teamwork, Research","Economics, Statistics",Science,MSc,66389
+Arts & Media Career 168,Arts & Media,"Research, Creativity, Problem Solving","Math, English",Business & Finance,MBBS,69624
+Business Career 169,Business,"Marketing, Teamwork, Project Management","Statistics, Management",Science,BEd,142536
+Engineering Career 170,Engineering,"Leadership, Teaching, Problem Solving","Accounting, Management",Helping People,LLB,185623
+Arts & Media Career 171,Arts & Media,"Research, Communication, Patient Care","ICT, Math",Research,BSc,92535
+IT Career 172,IT,"Project Management, Teamwork, Teaching","English, Math",Helping People,BSc,102632
+IT Career 173,IT,"Design, Creativity, Communication","History, Math",Travel & Hospitality,LLB,158483
+Finance Career 174,Finance,"Critical Thinking, Research, Patient Care","English, Management",Helping People,MBA,123835
+Education Career 175,Education,"Patient Care, Programming, Communication","History, ICT",Technology,Diploma,103491
+Engineering Career 176,Engineering,"Teaching, Leadership, Marketing","Statistics, English",Technology,BEd,116336
+Business Career 177,Business,"Marketing, Critical Thinking, Project Management","Math, ICT",Business & Finance,Diploma,134069
+IT Career 178,IT,"Creativity, Marketing, Problem Solving","Biology, Management",Research,LLB,225421
+Education Career 179,Education,"Programming, Research, Problem Solving","Math, Accounting",Helping People,Diploma,92406
+Hospitality Career 180,Hospitality,"Programming, Leadership, Data Analysis","ICT, English",Helping People,BSc,76109
+Engineering Career 181,Engineering,"Project Management, Leadership, Communication","Biology, Statistics",Health & Wellness,Diploma,203242
+Engineering Career 182,Engineering,"Design, Communication, Leadership","Chemistry, Biology",Art & Creativity,BSc Honours,123828
+Education Career 183,Education,"Problem Solving, Programming, Communication","Biology, Management",Helping People,Diploma,103342
+IT Career 184,IT,"Project Management, Patient Care, Teaching","Math, Chemistry",Law & Policy,BSc Honours,139009
+Science Career 185,Science,"Marketing, Research, Design","Economics, Management",Business & Finance,LLB,134175
+Education Career 186,Education,"Creativity, Patient Care, Problem Solving","Management, Accounting",Technology,BEd,51509
+Education Career 187,Education,"Patient Care, Project Management, Programming","ICT, Chemistry",Technology,BSc Honours,85453
+Science Career 188,Science,"Marketing, Leadership, Problem Solving","Statistics, Accounting",Education,PhD,151548
+Engineering Career 189,Engineering,"Leadership, Communication, Data Analysis","Economics, Statistics",Research,LLB,159693
+Law Career 190,Law,"Teaching, Critical Thinking, Design","History, Accounting",Art & Creativity,BSc Honours,195164
+Arts & Media Career 191,Arts & Media,"Teamwork, Marketing, Project Management","Economics, Biology",Business & Finance,BSc Honours,100179
+Science Career 192,Science,"Patient Care, Problem Solving, Programming","Physics, Economics",Education,MSc,76524
+IT Career 193,IT,"Programming, Creativity, Design","Economics, ICT",Art & Creativity,MSc,183900
+IT Career 194,IT,"Programming, Teaching, Leadership","Physics, ICT",Technology,MSc,192265
+Engineering Career 195,Engineering,"Teaching, Teamwork, Creativity","Statistics, Biology",Business & Finance,BSc Honours,97350
+Law Career 196,Law,"Creativity, Marketing, Problem Solving","Management, Accounting",Education,LLB,198409
+Business Career 197,Business,"Programming, Leadership, Project Management","Management, ICT",Travel & Hospitality,BSc Honours,82114
+IT Career 198,IT,"Data Analysis, Leadership, Teaching","Biology, History",Law & Policy,BSc,222279
+Hospitality Career 199,Hospitality,"Patient Care, Creativity, Teamwork","Statistics, Biology",Science,MBA,69399
+Education Career 200,Education,"Creativity, Programming, Teamwork","History, ICT",Travel & Hospitality,BEd,81510
