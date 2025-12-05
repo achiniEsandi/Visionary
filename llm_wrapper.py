@@ -1,53 +1,37 @@
-# llm_wrapper.py
 import os
 import requests
-import json
 
-LLM_PROVIDER = os.getenv('LLM_PROVIDER', 'none').lower()
-API_KEY = os.getenv('LLM_API_KEY', '')
+from dotenv import load_dotenv
+load_dotenv()
 
-def generate_explanation(prompt, max_tokens=200):
-    """
-    Returns a short explanation text for a recommended career.
-    Implement provider functions below (Gemini, OpenAI, etc.) and call them here.
-    """
-    if LLM_PROVIDER == 'openai':
-        return generate_with_openai(prompt, max_tokens)
-    elif LLM_PROVIDER == 'gemini':
-        return generate_with_gemini(prompt, max_tokens)
-    else:
-        # Fallback: simple templated explanation
-        return "Explanation: " + (prompt[:400] + '...')
 
-def generate_with_openai(prompt, max_tokens=200):
+API_KEY = os.getenv("GEMINI_API_KEY")
+
+def get_ai_recommendation(prompt):
+    if not API_KEY:
+        return "API key missing. Add GEMINI_API_KEY to your .env"
+
+    url = (
+        "https://generativeai.googleapis.com/v1beta/models/gemini-1.5:generateContent"
+
+        f"?key={API_KEY}"
+    )
+
+    payload = {
+        "contents": [
+            {"parts": [{"text": prompt}]}
+        ]
+    }
+
     try:
-        import openai
-        openai.api_key = API_KEY
-        resp = openai.Completion.create(
-            engine="text-davinci-003",
-            prompt=prompt,
-            max_tokens=max_tokens,
-            temperature=0.7,
-            n=1
-        )
-        return resp.choices[0].text.strip()
+        response = requests.post(url, json=payload)
+
+        if response.status_code != 200:
+            return f"Error {response.status_code}: {response.text}"
+
+        data = response.json()
+
+        return data["candidates"][0]["content"]["parts"][0]["text"]
+
     except Exception as e:
-        return f"[OpenAI error] {e}"
-
-def generate_with_gemini(prompt, max_tokens=200):
-    """
-    Placeholder for Gemini call.
-    Gemini's exact integration depends on the client / SDK you use (Google Generative AI SDK or REST).
-    Replace the contents of this function with the appropriate Gemini client call, for example:
-
-    - using google-generative-ai Python client:
-        from google.generativeai import Client
-        client = Client(api_key=API_KEY)
-        res = client.generate_text(model="gemini-1.0", prompt=prompt)
-        return res.text
-
-    - or using HTTP requests to your Gemini endpoint (if available).
-
-    For now this returns a placeholder so the app works offline.
-    """
-    return "LLM placeholder explanation for: " + (prompt[:300] + '...')
+        return f"Exception: {e}"
