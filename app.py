@@ -6,254 +6,217 @@ import re
 from dotenv import load_dotenv
 from google import genai
 
-# === Load .env for GEMINI_API_KEY ===
-load_dotenv()
-#GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_API_KEY = ""
+# =========================
+# App Config
+# =========================
+st.set_page_config(
+    page_title="Visionary – AI Career Finder",
+    page_icon="🎯",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-# === Init client ===
+# =========================
+# Load Environment
+# =========================
+load_dotenv()
+GEMINI_API_KEY = ""  # keep as-is
+
 client = genai.Client(api_key=GEMINI_API_KEY)
 
-# === Load dataset ===
+# =========================
+# Load Dataset
+# =========================
 DATA_PATH = "data/visionary_careers_sri_lanka_real.csv"
 df = pd.read_csv(DATA_PATH)
 
-# === Streamlit config ===
-st.set_page_config(page_title="Visionary - AI Career Finder", layout="wide")
+# =========================
+# Sidebar
+# =========================
+with st.sidebar:
+    st.title("🎯 Visionary")
+    st.caption("AI-powered career guidance")
 
-# === Theme toggle ===
-theme = st.radio("Select Theme", ["Light", "Dark"])
-if theme == "Dark":
-    st.markdown(
-        """<style>
-        .stApp { background-color: #111; color: #eee; }
-        .stTextInput input { background-color: #222; color: #eee; }
-        </style>""",
-        unsafe_allow_html=True,
+    theme = st.radio("Theme", ["Light", "Dark"], horizontal=True)
+
+    st.divider()
+    st.subheader("Your Profile")
+
+    sector = st.selectbox(
+        "Preferred Sector (optional)",
+        [""] + sorted(df["Sector"].unique())
     )
 
-# === Header ===
-st.title("About Visionary")
-st.markdown(
-    """
-Welcome to Visionary - AI Career Finder!  
-Optional sector selection  
-Type your skills, interests, subjects freely  
-AI generates motivational career recommendations  
-Dataset scoring used to color-code recommendations
-"""
+    skills = st.text_input("Skills", placeholder="SQL, Testing, Python")
+    interests = st.text_input("Interests", placeholder="Quality, Automation, Analysis")
+    subjects = st.text_input("Subjects Studied", placeholder="IT, Statistics")
+
+    submit = st.button("🚀 Get Recommendations", use_container_width=True)
+
+# =========================
+# Theme Styling
+# =========================
+if theme == "Dark":
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-color: #0f172a;
+            color: #e5e7eb;
+        }
+        div[data-testid="stMetric"] {
+            background-color: #020617;
+            padding: 12px;
+            border-radius: 10px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+# =========================
+# Header
+# =========================
+st.title("Discover Your Career Path")
+st.caption(
+    "Tell us about your skills and interests — Visionary will guide you towards careers that fit you best."
 )
 
-# === Inputs ===
-st.subheader("Explore Your Career Path")
-sector = st.selectbox("Select Sector (Optional)", [""] + sorted(df['Sector'].unique()))
-skills = st.text_input("Your Skills (comma-separated)")
-interests = st.text_input("Your Interests (comma-separated)")
-subjects = st.text_input("Subjects You Studied (comma-separated)")
+st.divider()
 
-# === AI call ===
+# =========================
+# AI Call
+# =========================
 def get_ai_recommendation(prompt):
-    """Return (text, error) using genai client"""
     if not GEMINI_API_KEY:
         return None, "Missing GEMINI_API_KEY"
-
     try:
-        resp = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
+        resp = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
         return resp.text, None
     except Exception as e:
-        return None, f"AI Exception: {str(e)}"
+        return None, str(e)
 
-# === Helpers to recover JSON ===
+# =========================
+# Helpers
+# =========================
 def extract_json_substring(text):
-    """
-    Try to find a JSON array or object substring in text.
-    Returns parsed JSON or None.
-    """
-    # Try find the first [...] or {...} block that parses
     patterns = [r"(\[.*\])", r"(\{.*\})"]
     for pat in patterns:
         match = re.search(pat, text, flags=re.DOTALL)
         if match:
-            candidate = match.group(1)
             try:
-                return json.loads(candidate)
+                return json.loads(match.group(1))
             except Exception:
-                # try to fix common trailing commas
-                candidate_fixed = re.sub(r",\s*([}\]])", r"\1", candidate)
-                try:
-                    return json.loads(candidate_fixed)
-                except Exception:
-                    continue
+                continue
     return None
 
 def parse_loose_list(text):
-    """
-    Parse a loose newline/bullet list into the expected list of dicts.
-    Accepts lines like:
-      1. Software QA Engineer - IT - You excel at spotting issues.
-      - Software QA Engineer | IT | You excel...
-    Returns list or None.
-    """
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
     items = []
     for ln in lines:
-        # remove leading numbering or bullets
-        ln = re.sub(r"^\s*[\-\*\d\.\)\:]+\s*", "", ln)
-        # split on common separators
-        if " - " in ln:
-            parts = ln.split(" - ", 2)
-        elif " | " in ln:
-            parts = ln.split(" | ", 2)
-        elif " — " in ln:
-            parts = ln.split(" — ", 2)
-        else:
-            # try splitting by comma but limit to 3 parts
-            parts = [p.strip() for p in ln.split(",")[:3]]
-
+        ln = re.sub(r"^[\-\*\d\.\)\:]+\s*", "", ln)
+        parts = re.split(r"\s[-|—]\s", ln, maxsplit=2)
         if len(parts) >= 2:
-            name = parts[0].strip()
-            sector_p = parts[1].strip() if len(parts) >= 2 else "Various"
-            desc = parts[2].strip() if len(parts) >= 3 else ""
             items.append({
-                "Career Name": name,
-                "Sector": sector_p,
-                "Description": desc
+                "Career Name": parts[0],
+                "Sector": parts[1],
+                "Description": parts[2] if len(parts) > 2 else ""
             })
-
     return items if items else None
 
-# === Scoring fallback (unchanged) ===
+# =========================
+# Dataset Fallback
+# =========================
 def dataset_recommendations(sector, skills, interests, subjects):
     df_filtered = df.copy()
     if sector:
-        df_filtered = df_filtered[df_filtered['Sector'] == sector]
+        df_filtered = df_filtered[df_filtered["Sector"] == sector]
 
     def score_row(row):
         score = 0
-        for sk in [s.strip().lower() for s in skills.split(",") if s.strip()]:
-            if sk and sk in str(row.get('Required_Skills', "")).lower():
-                score += 1
-        for intr in [i.strip().lower() for i in interests.split(",") if i.strip()]:
-            if intr and intr in str(row.get('Interests', "")).lower():
-                score += 1
-        for sub in [s.strip().lower() for s in subjects.split(",") if s.strip()]:
-            if sub and sub in str(row.get('Required_Subjects', "")).lower():
-                score += 1
+        for val, col in [
+            (skills, "Required_Skills"),
+            (interests, "Interests"),
+            (subjects, "Required_Subjects")
+        ]:
+            for token in [v.strip().lower() for v in val.split(",") if v.strip()]:
+                if token in str(row.get(col, "")).lower():
+                    score += 1
         return score
 
-    df_filtered['Score'] = df_filtered.apply(score_row, axis=1)
-    df_filtered = df_filtered[df_filtered['Score'] > 0]
-    df_filtered = df_filtered.sort_values(by='Score', ascending=False)
+    df_filtered["Score"] = df_filtered.apply(score_row, axis=1)
+    df_filtered = df_filtered[df_filtered["Score"] > 0]
+    df_filtered = df_filtered.sort_values("Score", ascending=False)
 
-    recs = []
-    for _, row in df_filtered.iterrows():
-        recs.append({
-            "Career Name": row['Career_Name'],
-            "Sector": row['Sector'],
+    return [
+        {
+            "Career Name": row["Career_Name"],
+            "Sector": row["Sector"],
             "Description": f"Dataset match score: {row['Score']}"
-        })
-    return recs
+        }
+        for _, row in df_filtered.iterrows()
+    ]
 
-# === Main action ===
-if st.button("Get Recommendations"):
+# =========================
+# Main Action
+# =========================
+if submit:
     prompt = f"""
-You are an assistant that MUST respond ONLY in valid JSON (no extra commentary).
-Recommend 5 careers for someone with the following profile:
-Sector: {sector if sector else 'Any'}
+Respond ONLY in valid JSON.
+Recommend 5 careers for:
+Sector: {sector or "Any"}
 Skills: {skills}
 Interests: {interests}
 Subjects: {subjects}
 
-Return a JSON array of objects. Each object must have these keys exactly:
-- "Career Name": short string
-- "Sector": short string
-- "Description": one-sentence motivational description
-
-Example valid response:
-[
-  {{
-    "Career Name": "Software QA Engineer",
-    "Sector": "IT",
-    "Description": "You excel at spotting issues early and ensuring quality."
-  }}
-]
-Do not add any explanation or text outside the JSON.
+Return JSON array with:
+- Career Name
+- Sector
+- Description
 """
 
-    with st.spinner("Calling AI..."):
+    with st.spinner("Analyzing your profile..."):
         ai_text, ai_error = get_ai_recommendation(prompt)
 
-    ai_recommendations = []
+    recommendations = []
 
     if ai_text:
-        # 1) Try direct JSON parse
         try:
-            parsed = json.loads(ai_text)
-            if isinstance(parsed, list):
-                ai_recommendations = parsed
-            elif isinstance(parsed, dict):
-                # single object -> wrap
-                ai_recommendations = [parsed]
+            recommendations = json.loads(ai_text)
         except Exception:
-            parsed = None
+            parsed = extract_json_substring(ai_text) or parse_loose_list(ai_text)
+            if parsed:
+                recommendations = parsed
 
-            # 2) Try to extract a JSON substring
-            try:
-                parsed = extract_json_substring(ai_text)
-                if parsed:
-                    if isinstance(parsed, list):
-                        ai_recommendations = parsed
-                    elif isinstance(parsed, dict):
-                        ai_recommendations = [parsed]
-            except Exception:
-                parsed = None
+    if not recommendations:
+        st.info("Using dataset-based recommendations.")
+        recommendations = dataset_recommendations(sector, skills, interests, subjects)
 
-            # 3) Try loose parsing from bullet/newline lists
-            if not ai_recommendations:
-                try:
-                    loose = parse_loose_list(ai_text)
-                    if loose:
-                        ai_recommendations = loose
-                except Exception:
-                    pass
+    # =========================
+    # Display Results
+    # =========================
+    st.subheader("🎓 Recommended Careers")
 
-        # If we recovered something but items are missing keys, try to normalize
-        normalized = []
-        for item in ai_recommendations:
-            if not isinstance(item, dict):
-                continue
-            name = item.get("Career Name") or item.get("career") or item.get("title") or item.get("name")
-            sector_p = item.get("Sector") or item.get("sector") or "Various"
-            desc = item.get("Description") or item.get("description") or item.get("desc") or ""
-            if name:
-                normalized.append({
-                    "Career Name": str(name).strip(),
-                    "Sector": str(sector_p).strip(),
-                    "Description": str(desc).strip()
-                })
-        ai_recommendations = normalized
-
-        # If still empty, warn user
-        if not ai_recommendations:
-            st.warning("AI returned content but we couldn't parse valid recommendations from it. Showing dataset recommendations instead.")
-            st.info("AI raw output (truncated):")
-            st.code(ai_text[:1000])
+    if not recommendations:
+        st.warning("No suitable careers found for the given inputs.")
     else:
-        if ai_error:
-            st.warning(f"AI generation failed: {ai_error}")
-        else:
-            st.warning("No AI response received.")
-
-    # === Final fallback to dataset ===
-    if not ai_recommendations:
-        ai_recommendations = dataset_recommendations(sector, skills, interests, subjects)
-        if not ai_recommendations:
-            st.info("No dataset matches found for the provided inputs.")
-
-    # === Display Recommendations ===
-    st.subheader("Recommended Careers for You:")
-    for rec in ai_recommendations:
-        career = rec.get("Career Name", "N/A")
-        sector_rec = rec.get("Sector", "Various")
-        desc = rec.get("Description", "")
-        st.markdown(f"**{career}**  \nSector: {sector_rec}  \n{desc}")
+        for rec in recommendations:
+            st.markdown(
+                f"""
+                <div style="
+                    padding: 18px;
+                    margin-bottom: 14px;
+                    border-radius: 14px;
+                    background-color: rgba(255,255,255,0.04);
+                    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+                ">
+                    <h4>{rec.get("Career Name", "N/A")}</h4>
+                    <p><strong>Sector:</strong> {rec.get("Sector", "Various")}</p>
+                    <p>{rec.get("Description", "")}</p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
