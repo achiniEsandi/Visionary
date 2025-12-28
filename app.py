@@ -18,7 +18,7 @@ st.set_page_config(
 )
 
 # =========================================================
-# Global UI Styling
+# Global UI Styling with new background
 # =========================================================
 st.markdown("""
 <style>
@@ -27,14 +27,16 @@ footer {visibility: hidden;}
 header {visibility: hidden;}
 
 .stApp {
-    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
-    color: #e5e7eb;
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+    color: #1e293b;
 }
 
 section[data-testid="stSidebar"] {
-    background: #020617;
-    border-right: 1px solid #1e293b;
+    background: linear-gradient(135deg, #a78bfa, #818cf8);
+    color: #f8fafc;
+    border-right: 1px solid #6366f1;
 }
+
 
 input, textarea, select {
     border-radius: 12px !important;
@@ -270,27 +272,28 @@ Return JSON array with:
             sector_label = rec.get("Sector", "Various")
             description = rec.get("Description", "")
 
-            # Render **modern card safely**
+            # Render modern card safely
             st.markdown(f"""
             <div style="
                 padding: 28px;
                 border-radius: 24px;
-                background: #0f172a;
+                background: #ffffff90;
                 border-left: 6px solid #6366f1;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
                 margin-bottom: 24px;
+                color:#1e293b;
             ">
-                <h3 style="margin-bottom:10px; color:#e5e7eb;">{title}</h3>
+                <h3 style="margin-bottom:10px;">{title}</h3>
                 <div style="
                     display:inline-block;
                     font-size: 12px;
-                    background: #1e293b;
+                    background: #6366f1;
                     color: #f8fafc;
                     padding: 6px 14px;
                     border-radius: 999px;
                     margin-bottom: 12px;
                 ">{sector_label}</div>
-                <p style="margin-top:14px; opacity:0.85; line-height:1.6; color:#cbd5e1;">
+                <p style="margin-top:14px; line-height:1.6;">
                     {description}
                 </p>
             </div>
@@ -302,7 +305,7 @@ Return JSON array with:
 # Footer
 # =========================================================
 st.markdown("""
-<hr style="border-color:#1e293b;">
+<hr style="border-color:#d1d5db;">
 <p style="text-align:center; font-size:13px; opacity:0.6;">
 Visionary • AI-Driven Career Guidance • Built for Sri Lanka 🇱🇰
 </p>
