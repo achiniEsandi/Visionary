@@ -18,12 +18,47 @@ st.set_page_config(
 )
 
 # =========================================================
+# Global UI Styling
+# =========================================================
+st.markdown("""
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+.stApp {
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    color: #e5e7eb;
+}
+
+section[data-testid="stSidebar"] {
+    background: #020617;
+    border-right: 1px solid #1e293b;
+}
+
+input, textarea, select {
+    border-radius: 12px !important;
+}
+
+button[kind="primary"] {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    border-radius: 14px;
+    height: 48px;
+    font-weight: 600;
+}
+
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# =========================================================
 # Load Environment
 # =========================================================
 load_dotenv()
-GEMINI_API_KEY = ""  # keep empty or set in .env
-
-client = genai.Client(api_key=GEMINI_API_KEY)
+GEMINI_API_KEY = ""
+client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 
 # =========================================================
 # Load Dataset
@@ -32,32 +67,32 @@ DATA_PATH = "data/visionary_careers_sri_lanka_real.csv"
 df = pd.read_csv(DATA_PATH)
 
 # =========================================================
-# Sidebar (Controls)
+# Sidebar
 # =========================================================
 with st.sidebar:
     st.title("🎯 Visionary")
-    st.caption("AI-powered career discovery platform")
+    st.caption("AI-powered career discovery")
 
     st.divider()
-    st.subheader("Your Profile")
+    st.subheader("👤 Your Profile")
 
     sector = st.selectbox(
-        "Preferred Sector (optional)",
-        [""] + sorted(df["Sector"].unique())
+        "Preferred Sector",
+        ["Any"] + sorted(df["Sector"].dropna().unique())
     )
 
     skills = st.text_input(
-        "Skills",
-        placeholder="SQL, Testing, Python"
+        "🛠 Skills",
+        placeholder="SQL, Manual Testing, Python"
     )
 
     interests = st.text_input(
-        "Interests",
-        placeholder="Quality, Automation, Analysis"
+        "💡 Interests",
+        placeholder="Automation, Quality, Analysis"
     )
 
     subjects = st.text_input(
-        "Subjects Studied",
+        "📘 Subjects Studied",
         placeholder="IT, Statistics"
     )
 
@@ -67,23 +102,29 @@ with st.sidebar:
         use_container_width=True
     )
 
+    st.caption("💡 Tip: Add at least 2 skills for better results")
+
 # =========================================================
 # Hero Section
 # =========================================================
 st.markdown("""
 <div style="
-    padding: 42px 28px;
-    border-radius: 24px;
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    padding: 50px 36px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, #6366f1, #4338ca);
     color: white;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(99,102,241,0.25);
 ">
-    <h1 style="margin-bottom:6px;">Visionary</h1>
+    <h1 style="margin-bottom:10px; font-size:48px;">
+        Visionary 🎯
+    </h1>
     <h3 style="font-weight:400; opacity:0.95;">
-        AI-Powered Career Discovery
+        AI-Powered Career Discovery Platform
     </h3>
-    <p style="margin-top:14px; font-size:16px; opacity:0.9;">
-        Turn your skills, interests, and education into a clear career direction.
+    <p style="margin-top:16px; font-size:17px; opacity:0.9; max-width:720px;">
+        Turn your skills, interests, and education into a clear career direction —
+        powered by AI and real Sri Lankan job market data.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -92,7 +133,7 @@ st.markdown("""
 # Helper Functions
 # =========================================================
 def get_ai_recommendation(prompt):
-    if not GEMINI_API_KEY:
+    if not client:
         return None, "Missing GEMINI_API_KEY"
     try:
         response = client.models.generate_content(
@@ -102,7 +143,6 @@ def get_ai_recommendation(prompt):
         return response.text, None
     except Exception as e:
         return None, str(e)
-
 
 def extract_json_substring(text):
     patterns = [r"(\[.*\])", r"(\{.*\})"]
@@ -114,7 +154,6 @@ def extract_json_substring(text):
             except Exception:
                 pass
     return None
-
 
 def parse_loose_list(text):
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
@@ -130,10 +169,9 @@ def parse_loose_list(text):
             })
     return items if items else None
 
-
 def dataset_recommendations(sector, skills, interests, subjects):
     df_filtered = df.copy()
-    if sector:
+    if sector != "Any":
         df_filtered = df_filtered[df_filtered["Sector"] == sector]
 
     def score_row(row):
@@ -156,10 +194,14 @@ def dataset_recommendations(sector, skills, interests, subjects):
         {
             "Career Name": row["Career_Name"],
             "Sector": row["Sector"],
-            "Description": f"Dataset match score: {row['Score']}"
+            "Description": f"Matched {row['Score']} profile attributes from dataset"
         }
         for _, row in df_filtered.iterrows()
     ]
+
+def clean_text(text):
+    """Remove any HTML tags from AI-generated text"""
+    return re.sub(r"<[^>]*>", "", text)
 
 # =========================================================
 # Main Logic
@@ -167,9 +209,11 @@ def dataset_recommendations(sector, skills, interests, subjects):
 if submit:
     prompt = f"""
 Respond ONLY in valid JSON.
-Recommend 5 careers for:
+DO NOT use HTML or markdown.
 
-Sector: {sector or "Any"}
+Recommend 10 careers for:
+
+Sector: {sector}
 Skills: {skills}
 Interests: {interests}
 Subjects: {subjects}
@@ -177,15 +221,16 @@ Subjects: {subjects}
 Return JSON array with:
 - Career Name
 - Sector
-- Description
+- Description (plain text only)
 """
 
-    with st.spinner("Mapping your profile to future careers..."):
-        time.sleep(1.2)
+    with st.spinner("🔍 Mapping your profile to careers..."):
+        time.sleep(1)
         ai_text, ai_error = get_ai_recommendation(prompt)
 
     recommendations = []
 
+    # Parse AI output safely
     if ai_text:
         try:
             recommendations = json.loads(ai_text)
@@ -194,55 +239,71 @@ Return JSON array with:
             if parsed:
                 recommendations = parsed
 
+    # Dataset fallback
     if not recommendations:
-        st.info("AI confidence was low — using verified dataset recommendations.")
-        recommendations = dataset_recommendations(
-            sector, skills, interests, subjects
-        )
+        st.info("🤖 AI confidence low. Showing dataset recommendations.")
+        recommendations = dataset_recommendations(sector, skills, interests, subjects)
 
-    # =====================================================
-    # Results Section
-    # =====================================================
+    # Clean all descriptions and ensure dicts
+    cleaned_recs = []
+    for r in recommendations:
+        if isinstance(r, dict):
+            r["Description"] = clean_text(r.get("Description", ""))
+            cleaned_recs.append(r)
+        elif isinstance(r, str):
+            parsed = parse_loose_list(r)
+            if parsed:
+                for p in parsed:
+                    p["Description"] = clean_text(p.get("Description", ""))
+                cleaned_recs.extend(parsed)
+
+    # =========================================================
+    # Render Results (User View: HTML safe)
+    # =========================================================
     st.subheader("🎓 Career Matches Tailored for You")
 
-    if not recommendations:
-        st.warning("No suitable career paths found for the given inputs.")
+    if not cleaned_recs:
+        st.warning("No suitable career paths found. Try adding more skills or interests.")
     else:
-        for rec in recommendations:
+        for rec in cleaned_recs:
+            title = rec.get("Career Name", "N/A")
+            sector_label = rec.get("Sector", "Various")
+            description = rec.get("Description", "")
+
+            # Render **modern card safely**
             st.markdown(f"""
             <div style="
-                padding: 22px;
-                border-radius: 18px;
-                background-color: rgba(255,255,255,0.04);
+                padding: 28px;
+                border-radius: 24px;
+                background: #0f172a;
                 border-left: 6px solid #6366f1;
-                margin-bottom: 18px;
-                box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+                margin-bottom: 24px;
             ">
-                <h4 style="margin-bottom:6px;">
-                    {rec.get("Career Name", "N/A")}
-                </h4>
-                <span style="
+                <h3 style="margin-bottom:10px; color:#e5e7eb;">{title}</h3>
+                <div style="
+                    display:inline-block;
                     font-size: 12px;
-                    background-color: #1e293b;
-                    padding: 4px 12px;
+                    background: #1e293b;
+                    color: #f8fafc;
+                    padding: 6px 14px;
                     border-radius: 999px;
-                ">
-                    {rec.get("Sector", "Various")}
-                </span>
-                <p style="margin-top:12px; opacity:0.9;">
-                    {rec.get("Description", "")}
+                    margin-bottom: 12px;
+                ">{sector_label}</div>
+                <p style="margin-top:14px; opacity:0.85; line-height:1.6; color:#cbd5e1;">
+                    {description}
                 </p>
             </div>
             """, unsafe_allow_html=True)
 
-    st.success("Career analysis completed successfully.")
+    st.success("✅ Career analysis completed successfully!")
 
 # =========================================================
 # Footer
 # =========================================================
 st.markdown("""
-<hr>
+<hr style="border-color:#1e293b;">
 <p style="text-align:center; font-size:13px; opacity:0.6;">
-Visionary • AI-Driven Career Guidance • Sri Lanka Dataset
+Visionary • AI-Driven Career Guidance • Built for Sri Lanka 🇱🇰
 </p>
 """, unsafe_allow_html=True)
